@@ -8,7 +8,7 @@ $(document).ready(function(){
 			$("#classic").addClass("activatedmode");
 
 	$("#updateButton").click(function() {
-		$("#wrapper").height("95vh").width("83%");
+		$("#wrapper").height("90vh").width("82vw");
 
 
 		$('#wrapper').empty();
@@ -23,8 +23,8 @@ $(document).ready(function(){
 		}
 	
 
-		var unitheight=($("#wrapper").height()-2*height1)/(height1);
-		var unitwidth=($("#wrapper").width()-2*width1)/(width1);
+		var unitheight=Math.floor(($("#wrapper").height()-2*height1)/(height1));
+		var unitwidth=Math.floor(($("#wrapper").width()-2*width1)/(width1));
 		$('.default').outerHeight(unitheight);
 		$('.default').outerWidth(unitwidth-6);
 		$("#wrapper").width("auto");
@@ -67,7 +67,7 @@ $(document).ready(function(){
 		$("#increment").removeClass("activatedmode");
 		$("#increment").addClass("mode");
 
-		$("#wrapper").height("95vh").width("83%");
+		$("#wrapper").height("90vh").width("82vw");
 
 
 		$('#wrapper').empty();
@@ -104,7 +104,7 @@ $(document).ready(function(){
 		$("#increment").addClass("mode");
 		$("#increment").removeClass("activatedmode");
 
-		$("#wrapper").height("95vh").width("83%");
+		$("#wrapper").height("90vh").width("82vw");
 
 		$('#wrapper').empty();
 		var height1=height.value;
@@ -141,7 +141,7 @@ $(document).ready(function(){
 		$("#classic").addClass("mode");
 		$("#classic").removeClass("activatedmode");
 
-		$("#wrapper").height("95vh").width("83%");
+		$("#wrapper").height("90vh").width("82vw");
 
 		$('#wrapper').empty();
 		var height1=height.value;
