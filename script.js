@@ -9,30 +9,6 @@ $(document).ready(function(){
 
 	$("#updateButton").click(function() {
 
-		$("#wrapper").off();
-
-		if($("#classic").hasClass("activatedmode")){
-			$(document).on('mouseenter','.default', function(){
-				$(this).css("background-color","#E74C3C");
-	});
-	}
-
-		else if($("#funky").hasClass("activatedmode")){
-
-			$(document).on('mouseenter','.default',function(){
-			$(this).css("background-color","#"+Math.floor(Math.random()*16777215).toString(16));	
-		})
-
-	}
-
-		else{
-			$(document).on('mouseenter','.default',function(){
-				var value=$(this).css("opacity");
-				$(this).css("opacity",value-=.1);
-				$(this).css("background-color","#BDC3c7");
-			})
-		}
-
 
 		$('#wrapper').empty();
 		var height1=height.value;
@@ -44,8 +20,6 @@ $(document).ready(function(){
 			}
 			$("#wrapper").append("<br>");
 		}
-			
-
 	
 
 		var unitheight=($("#wrapper").height()-2*height1)/(height1);
@@ -54,6 +28,31 @@ $(document).ready(function(){
 		$('.default').outerWidth(unitwidth-6);
 		$('#updateButton').empty();
 		$('#updateButton').text("Reset");
+
+
+		if($("#classic").hasClass("activatedmode")){
+			$(document).on('mouseenter','.default', function(){
+				$(this).css("background-color","#E74C3C");
+			});
+		}
+
+		else if($("#funky").hasClass("activatedmode")){
+
+			$('.default').removeClass().addClass("funkyclass");
+			$(document).on('mouseenter','.funkyclass',function(){
+				$(this).css("background-color","#"+Math.floor(Math.random()*16777215).toString(16));	
+			})
+
+		}
+
+		else{
+			$('.default').removeClass().addClass("incrementclass");
+			$(document).on('mouseenter','.incrementclass',function(){
+				var value=$(this).css("opacity");
+				$(this).css("opacity",value-=.1);
+				$(this).css("background-color","#BDC3c7");
+			})
+		}
 
 	});
 
@@ -104,19 +103,19 @@ $(document).ready(function(){
 		for(jj=0;jj<height1;jj++){
 
 		for(var ii=0; ii<width1; ii++){
-			$("#wrapper").append('<div class="default"></div>');
+			$("#wrapper").append('<div class="funkyclass"></div>');
 			}
 			$("#wrapper").append("<br>");
 		}
 
 		var unitheight=($("#wrapper").height()-2*height1)/(height1);
 		var unitwidth=($("#wrapper").width()-2*width1)/(width1);
-		$('.default').outerHeight(unitheight);
-		$('.default').outerWidth(unitwidth-6);
+		$('.funkyclass').outerHeight(unitheight);
+		$('.funkyclass').outerWidth(unitwidth-6);
 		$('#updateButton').empty();
 		$('#updateButton').text("Reset");
 
-					$(document).on('mouseenter','.default',function(){
+					$(document).on('mouseenter','.funkyclass',function(){
 			$(this).css("background-color","#"+Math.floor(Math.random()*16777215).toString(16));
 
 
@@ -144,12 +143,15 @@ $(document).ready(function(){
 
 		var unitheight=($("#wrapper").height()-2*height1)/(height1);
 		var unitwidth=($("#wrapper").width()-2*width1)/(width1);
-		$('.default').outerHeight(unitheight);
-		$('.default').outerWidth(unitwidth-6);
+		$('.default').removeClass().addClass("incrementclass");
+		$('.incrementclass').outerHeight(unitheight);
+		$('.incrementclass').outerWidth(unitwidth-6);
 		$('#updateButton').empty();
 		$('#updateButton').text("Reset");
 
-					$(document).on('mouseenter','.default',function(){
+		
+
+				$(document).on('mouseenter','.incrementclass',function(){
 				var value=$(this).css("opacity");
 				$(this).css("opacity",value-=.1);
 				$(this).css("background-color","#BDC3c7");

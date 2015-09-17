@@ -71,6 +71,21 @@
 .activated{
 	background-color:#E74C3C;
 }
+
+.funkyclass{
+	background-color:#BDC3c7;
+	display:inline-block;
+	margin-right:2px;
+	margin-left:2px;
+	overflow:hidden;
+}
+.incrementclass{
+	background-color:#BDC3c7;
+	display:inline-block;
+	margin-right:2px;
+	margin-left:2px;
+	overflow:hidden;
+}
 .activatedmode{
 	background-color:#C0392b;
 	height:50px;
