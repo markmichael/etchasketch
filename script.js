@@ -4,44 +4,22 @@ $(document).ready(function(){
 		var width=4;
 			height=document.getElementById('height');
 			width=document.getElementById('width');
-			$("#classic").removeClass("mode");
 			$("#classic").addClass("activatedmode");
 
 	$("#updateButton").click(function() {
-		$("#wrapper").height("90vh").width("82vw");
-
-
-		$('#wrapper').empty();
-		var height1=height.value;
-		var width1=width.value;
-		for(jj=0;jj<height1;jj++){
-
-		for(var ii=0; ii<width1; ii++){
-			$("#wrapper").append('<div class="default"></div>');
-			}
-			$("#wrapper").append("<br>");
-		}
-	
-
-		var unitheight=Math.floor(($("#wrapper").height()-2*height1)/(height1));
-		var unitwidth=Math.floor(($("#wrapper").width()-2*width1)/(width1));
-		$('.default').outerHeight(unitheight);
-		$('.default').outerWidth(unitwidth-6);
-		$("#wrapper").width("auto");
-		$("#wrapper").height("auto");
-		$('#updateButton').empty();
-		$('#updateButton').text("Reset");
 
 
 		if($("#classic").hasClass("activatedmode")){
+			generateGame("default");
 			$(document).on('mouseenter','.default', function(){
 				$(this).css("background-color","#E74C3C");
 			});
 		}
 
 		else if($("#funky").hasClass("activatedmode")){
+			generateGame("funkyclass");
 
-			$('.default').removeClass().addClass("funkyclass");
+			$('.default').addClass("funkyclass");
 			$(document).on('mouseenter','.funkyclass',function(){
 				$(this).css("background-color","#"+Math.floor(Math.random()*16777215).toString(16));	
 			})
@@ -49,7 +27,8 @@ $(document).ready(function(){
 		}
 
 		else{
-			$('.default').removeClass().addClass("incrementclass");
+			generateGame("incrementclass")
+			$('.default').addClass("incrementclass");
 			$(document).on('mouseenter','.incrementclass',function(){
 				var value=$(this).css("opacity");
 				$(this).css("opacity",value-=.1);
@@ -60,35 +39,9 @@ $(document).ready(function(){
 	});
 
 	$("#classic").click(function(){
-		$("#classic").addClass("activatedmode");
-		$("#classic").removeClass("mode");
-		$("#funky").removeClass("activatedmode");
-		$("#funky").addClass("mode");
-		$("#increment").removeClass("activatedmode");
-		$("#increment").addClass("mode");
+		selectGameMode(3);
 
-		$("#wrapper").height("90vh").width("82vw");
-
-
-		$('#wrapper').empty();
-		var height1=height.value;
-		var width1=width.value;
-		for(jj=0;jj<height1;jj++){
-
-		for(var ii=0; ii<width1; ii++){
-			$("#wrapper").append('<div class="default"></div>');
-			}
-			$("#wrapper").append("<br>");
-		}
-
-		var unitheight=($("#wrapper").height()-2*height1)/(height1);
-		var unitwidth=($("#wrapper").width()-2*width1)/(width1);
-		$('.default').outerHeight(unitheight);
-		$('.default').outerWidth(unitwidth-6);
-		$("#wrapper").width("auto");
-		$("#wrapper").height("auto");
-		$('#updateButton').empty();
-		$('#updateButton').text("Reset");
+		generateGame("default");
 
 			$(document).on('mouseenter','.default', function(){
 				$(this).css("background-color","#E74C3C");
@@ -97,34 +50,9 @@ $(document).ready(function(){
 	});
 
 	$("#funky").click(function(){
-		$("#funky").addClass("activatedmode");
-		$("#funky").removeClass("mode");
-		$("#classic").addClass("mode");
-		$("#classic").removeClass("activatedmode");
-		$("#increment").addClass("mode");
-		$("#increment").removeClass("activatedmode");
+		selectGameMode(2);
 
-		$("#wrapper").height("90vh").width("82vw");
-
-		$('#wrapper').empty();
-		var height1=height.value;
-		var width1=width.value;
-		for(jj=0;jj<height1;jj++){
-
-		for(var ii=0; ii<width1; ii++){
-			$("#wrapper").append('<div class="funkyclass"></div>');
-			}
-			$("#wrapper").append("<br>");
-		}
-
-		var unitheight=($("#wrapper").height()-2*height1)/(height1);
-		var unitwidth=($("#wrapper").width()-2*width1)/(width1);
-		$('.funkyclass').outerHeight(unitheight);
-		$('.funkyclass').outerWidth(unitwidth-6);
-		$("#wrapper").width("auto");
-		$("#wrapper").height("auto");
-		$('#updateButton').empty();
-		$('#updateButton').text("Reset");
+		generateGame("funkyclass");
 
 					$(document).on('mouseenter','.funkyclass',function(){
 			$(this).css("background-color","#"+Math.floor(Math.random()*16777215).toString(16));
@@ -134,35 +62,9 @@ $(document).ready(function(){
 	});				
 
 	$("#increment").click(function(){
-		$("#increment").addClass("activatedmode");
-		$("#increment").removeClass("mode");
-		$("#funky").addClass("mode");
-		$("#funky").removeClass("activatedmode");
-		$("#classic").addClass("mode");
-		$("#classic").removeClass("activatedmode");
+		selectGameMode(1);
 
-		$("#wrapper").height("90vh").width("82vw");
-
-		$('#wrapper').empty();
-		var height1=height.value;
-		var width1=width.value;
-		for(jj=0;jj<height1;jj++){
-
-		for(var ii=0; ii<width1; ii++){
-			$("#wrapper").append('<div class="default"></div>');
-			}
-			$("#wrapper").append("<br>");
-		}
-
-		var unitheight=($("#wrapper").height()-2*height1)/(height1);
-		var unitwidth=($("#wrapper").width()-2*width1)/(width1);
-		$('.default').removeClass().addClass("incrementclass");
-		$('.incrementclass').outerHeight(unitheight);
-		$('.incrementclass').outerWidth(unitwidth-6);
-		$("#wrapper").width("auto");
-		$("#wrapper").height("auto");
-		$('#updateButton').empty();
-		$('#updateButton').text("Reset");
+		generateGame("incrementclass");
 
 		
 
@@ -172,6 +74,54 @@ $(document).ready(function(){
 				$(this).css("background-color","#BDC3c7");
 	});
 });
+
+var generateGame=function(gametype) {
+		$("#wrapper").height("90vh").width("82vw");
+
+
+		$('#wrapper').empty();
+		var height1=height.value;
+		var width1=width.value;
+		for(jj=0;jj<height1;jj++){
+			$("#wrapper").append('<div class="gridbreak"></div>')
+		}
+
+		for(var ii=0; ii<width1; ii++){
+			$("#wrapper > .gridbreak").append('<div class="default"></div>');
+		}
+		
+		$('.default').addClass(gametype);
+
+		var unitheight=Math.floor(($("#wrapper").innerHeight()/(height1)));
+		var unitwidth=Math.floor(($("#wrapper").innerWidth())/(width1));
+		$('.gridbreak').height(unitheight);
+		$('.'+gametype).outerWidth(unitwidth);
+		$("#wrapper").width("auto");
+		$("#wrapper").height("auto");
+		$('#updateButton').empty();
+		$('#updateButton').text("Reset");
+	}
+var selectGameMode=function(gamemode){
+	switch(gamemode){
+		case 1:
+		$("#increment").addClass("activatedmode");
+		$("#funky").removeClass("activatedmode");
+		$("#classic").removeClass("activatedmode");
+		break;
+
+		case 2:
+		$("#increment").removeClass("activatedmode");
+		$("#funky").addClass("activatedmode");
+		$("#classic").removeClass("activatedmode");
+		break;
+
+		case 3:
+		$("#increment").removeClass("activatedmode");
+		$("#funky").removeClass("activatedmode");
+		$("#classic").addClass("activatedmode");
+		break;
+	}
+}
 
 
 });
