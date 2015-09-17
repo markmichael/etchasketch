@@ -20,6 +20,7 @@
 .gridbreak{
 	display:block;
 	overflow:hidden;
+	margin:0;
 }
 .default {
 	background-color:#BDC3c7;
@@ -87,14 +88,6 @@
 }
 .activatedmode{
 	background-color:#C0392b !important;
-/*	height:50px;
-	width:100%;
-	display:inline-block;
-	clear:both;
-	float:left;
-	text-align:center;
-	font-size:30pt;
-	font-family:sans-serif;*/
 }
 
 .mode:hover {

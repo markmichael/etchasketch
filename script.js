@@ -92,10 +92,10 @@ var generateGame=function(gametype) {
 		
 		$('.default').addClass(gametype);
 
-		var unitheight=Math.floor(($("#wrapper").innerHeight()/(height1)));
-		var unitwidth=Math.floor(($("#wrapper").innerWidth())/(width1));
+		var unitheight=($("#wrapper").innerHeight()/(height1));
+		var unitwidth=($("#wrapper").innerWidth())/(width1);
 		$('.gridbreak').height(unitheight);
-		$('.'+gametype).outerWidth(unitwidth);
+		$('.'+gametype).width(unitwidth);
 		$("#wrapper").width("auto");
 		$("#wrapper").height("auto");
 		$('#updateButton').empty();
