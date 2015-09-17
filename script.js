@@ -8,6 +8,7 @@ $(document).ready(function(){
 			$("#classic").addClass("activatedmode");
 
 	$("#updateButton").click(function() {
+		$("#wrapper").height("95vh").width("83%");
 
 
 		$('#wrapper').empty();
@@ -26,6 +27,8 @@ $(document).ready(function(){
 		var unitwidth=($("#wrapper").width()-2*width1)/(width1);
 		$('.default').outerHeight(unitheight);
 		$('.default').outerWidth(unitwidth-6);
+		$("#wrapper").width("auto");
+		$("#wrapper").height("auto");
 		$('#updateButton').empty();
 		$('#updateButton').text("Reset");
 
@@ -64,6 +67,8 @@ $(document).ready(function(){
 		$("#increment").removeClass("activatedmode");
 		$("#increment").addClass("mode");
 
+		$("#wrapper").height("95vh").width("83%");
+
 
 		$('#wrapper').empty();
 		var height1=height.value;
@@ -80,6 +85,8 @@ $(document).ready(function(){
 		var unitwidth=($("#wrapper").width()-2*width1)/(width1);
 		$('.default').outerHeight(unitheight);
 		$('.default').outerWidth(unitwidth-6);
+		$("#wrapper").width("auto");
+		$("#wrapper").height("auto");
 		$('#updateButton').empty();
 		$('#updateButton').text("Reset");
 
@@ -97,7 +104,9 @@ $(document).ready(function(){
 		$("#increment").addClass("mode");
 		$("#increment").removeClass("activatedmode");
 
-				$('#wrapper').empty();
+		$("#wrapper").height("95vh").width("83%");
+
+		$('#wrapper').empty();
 		var height1=height.value;
 		var width1=width.value;
 		for(jj=0;jj<height1;jj++){
@@ -112,6 +121,8 @@ $(document).ready(function(){
 		var unitwidth=($("#wrapper").width()-2*width1)/(width1);
 		$('.funkyclass').outerHeight(unitheight);
 		$('.funkyclass').outerWidth(unitwidth-6);
+		$("#wrapper").width("auto");
+		$("#wrapper").height("auto");
 		$('#updateButton').empty();
 		$('#updateButton').text("Reset");
 
@@ -130,7 +141,9 @@ $(document).ready(function(){
 		$("#classic").addClass("mode");
 		$("#classic").removeClass("activatedmode");
 
-						$('#wrapper').empty();
+		$("#wrapper").height("95vh").width("83%");
+
+		$('#wrapper').empty();
 		var height1=height.value;
 		var width1=width.value;
 		for(jj=0;jj<height1;jj++){
@@ -146,6 +159,8 @@ $(document).ready(function(){
 		$('.default').removeClass().addClass("incrementclass");
 		$('.incrementclass').outerHeight(unitheight);
 		$('.incrementclass').outerWidth(unitwidth-6);
+		$("#wrapper").width("auto");
+		$("#wrapper").height("auto");
 		$('#updateButton').empty();
 		$('#updateButton').text("Reset");
 
