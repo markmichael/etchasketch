@@ -1,5 +1,9 @@
+#bigwrapper{
+	width:100vw;
+	height:100vh;
+}
 #menuwrapper{
-	width:14vw;
+	width:14%;
 	display:inline-block;
 	float:left;
 }
@@ -9,8 +13,8 @@
 	border-color:#C0392b;
 	float:left;
 	display:inline-block;
-	width:83vw;
-	height:95vh;
+	width:83%;
+	height:95%;
 	clear:none;
 	margin:0;
 	padding:0;

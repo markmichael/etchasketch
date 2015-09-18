@@ -76,7 +76,7 @@ $(document).ready(function(){
 });
 
 var generateGame=function(gametype) {
-		$("#wrapper").height("90vh").width("82vw");
+		$("#wrapper").height("95%").width("83%");
 
 
 		$('#wrapper').empty();
@@ -92,7 +92,7 @@ var generateGame=function(gametype) {
 		
 		$('.default').addClass(gametype);
 
-		var unitheight=($("#wrapper").innerHeight()/(height1));
+		var unitheight=($("#wrapper").height()/(height1));
 		var unitwidth=($("#wrapper").innerWidth())/(width1);
 		$('.gridbreak').height(unitheight);
 		$('.'+gametype).width(unitwidth);
